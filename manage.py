@@ -1,6 +1,6 @@
 import os
 
-from app.main import create_app
+from app.main import create_app, _db
 from app.utils import loggers
 from app import blueprint
 
@@ -11,6 +11,8 @@ logger.info("Logging level is set to: {}".format(os.getenv("LOGGING_LEVEL", "DEB
 app = create_app(app_environment)
 app.register_blueprint(blueprint)
 app.app_context().push()
+
+_db.create_all()
 
 if __name__ == "__main__":
     app.run(threaded=True)
