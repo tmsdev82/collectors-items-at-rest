@@ -23,3 +23,12 @@ create_widget_schema = {
     },
     "required": ["name", "widget_type"]
 }
+
+update_widget_schema = {
+     "type": "object",
+    "properties": {      
+        "name": {"type": "string"},
+        "description": {"type": "string"},
+        "widget_type": {"type": "string"},        
+    }
+}
