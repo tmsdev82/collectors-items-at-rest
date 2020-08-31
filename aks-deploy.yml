@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask-backend
+  template:
+    metadata:
+      labels:
+        app: flask-backend
+    spec:
+      containers:
+      - name: flask-backend
+        image: "#{ContainerRegistryURI}#/#{flaskBackendName}#:#{flaskBackendVersion}##{Release.Artifacts._flask-backend.BuildId}#"
+        env:
+        - name: FLASK_APP
+          value: "#{FlaskApp}#"
+        - name: FLASK_APP_ENV
+          value: "#{FlaskAppEnv}#"
+        - name: LOGGING_LEVEL
+          value: "#{LoggingLevel}#"
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: flask-backend
+    labels:
+      service: backend
+spec:
+    type: LoadBalancer
+    selector:
+      app: flask-backend
+    ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000
