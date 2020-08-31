@@ -14,10 +14,8 @@ spec:
     spec:
       containers:
       - name: flask-backend
-        image: "#{ContainerRegistryURI}#/#{flaskBackendName}#:#{flaskBackendVersion}##{Release.Artifacts._flask-backend.BuildId}#"
-        env:
-        - name: FLASK_APP
-          value: "#{FlaskApp}#"
+        image: "#{containerRegistryURI}#/#{flaskBackendName}#:#{flaskBackendVersion}##{Release.Artifacts._flask-backend.BuildId}#"
+        env:       
         - name: FLASK_APP_ENV
           value: "#{FlaskAppEnv}#"
         - name: LOGGING_LEVEL
