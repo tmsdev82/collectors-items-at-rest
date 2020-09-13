@@ -10,11 +10,10 @@ resources:
 
 variables:
   - group: flask-backend-component
+  - group: container-registry-info
   # Container registry service connection established during pipeline creation
   - name: dockerRegistryServiceConnection
-    value: 'bbeea758-92c8-4c8e-9341-82494add83ff'  
-  - name: containerRegistry
-    value: 'vqddsinternalcr.azurecr.io'
+    value: 'bbeea758-92c8-4c8e-9341-82494add83ff'    
   - name: dockerfilePath
     value: '$(Build.SourcesDirectory)/Dockerfile'  
   # Agent VM image name
