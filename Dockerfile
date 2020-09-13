@@ -4,12 +4,6 @@ RUN apt-get update || apt-get update && apt-get install -y \
     curl apt-utils apt-transport-https debconf-utils gcc build-essential  \
     && rm -rf /var/lib/apt/lists/*
 
-
-# install necessary locales
-RUN apt-get update && apt-get install -y locales \
-    && echo "en_US.UTF-8 UTF-8" > /etc/locale.gen \
-    && locale-gen
-
 RUN pip install --upgrade pip
 
 # Create home directory for the new app user.
