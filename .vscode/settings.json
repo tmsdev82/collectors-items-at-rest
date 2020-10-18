@@ -1,0 +1,26 @@
+{
+    "python.pythonPath": "venv/bin/python",
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Path": "venv/bin/flake8",
+    "python.linting.enabled": true,
+    "python.linting.lintOnSave": true,
+    "python.linting.flake8Args": [
+        "--max-line-length=91",
+        "--ignore=E402,F841,F401,E302,E305",
+    ],
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": [
+        "--line-length",
+        "91"
+    ],
+    "pythonTestExplorer.testFramework": "pytest",
+    "python.testing.autoTestDiscoverOnSaveEnabled": true,
+    "editor.formatOnSave": true,
+    "files.trimTrailingWhitespace": true,
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    }
+}

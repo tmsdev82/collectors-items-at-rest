@@ -3,3 +3,4 @@ venv
 **/development.db
 app.egg-info
 .coverage
+cov_html
